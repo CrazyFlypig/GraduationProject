@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<rates>
+		<rate code="00">1Mbps</rate>
+		<rate code="01">2Mbps</rate>
+		<rate code="10">3Mbps</rate>
+		<rate code="11">4Mbps</rate>
+	</rates>
+	<encodings>
+		<encoding code="00">NRZ码</encoding>
+		<encoding code="01">PPM1</encoding>
+		<encoding code="10">PPM4</encoding>
+		<encoding code="11">4B5B+NRZI</encoding>
+	</encodings>
+	<errCorrectCodings>
+		<errCorrectCoding code="0">无</errCorrectCoding><!-- 有问题 -->
+		<errCorrectCoding code="1">LDPC</errCorrectCoding>
+		<errCorrectCoding code="1">RS</errCorrectCoding>
+	</errCorrectCodings>
+	<testDatas>
+		<testData code="000">01</testData>
+		<testData code="001">010011</testData>
+		<testData code="010">010011000111</testData>
+		<testData code="011">01001100011100001111</testData>
+		<testData code="100">PRBS 2^7-1</testData>
+		<testData code="101">PRBS 2^11-1</testData>
+		<testData code="110">PRBS 2^15-1</testData>
+		<testData code="111">PRBS 2^23-1</testData>
+	</testDatas>
+	<baudRates>
+		<baudRate>9600</baudRate>
+		<baudRate>19200</baudRate>
+		<baudRate>38400</baudRate>
+		<baudRate>57600</baudRate>
+		<baudRate>115200</baudRate>
+		<baudRate>230400</baudRate>
+		<baudRate>460800</baudRate>
+		<baudRate>614400</baudRate>
+		<baudRate>921600</baudRate>
+		<baudRate>1228800</baudRate>
+		<baudRate>1843200</baudRate>
+		<baudRate>2457600</baudRate>
+		<baudRate>3686400</baudRate>
+		<baudRate>4915200</baudRate>
+	</baudRates>
+</root>
