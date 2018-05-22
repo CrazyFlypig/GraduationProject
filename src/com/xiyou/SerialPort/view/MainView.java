@@ -254,7 +254,7 @@ public class MainView {
         systemTimeLabel.setBounds(7900/15, 200/15, 4000/15, 360/15);
         container.add(systemTimeLabel);
 
-        jlblTitle = new JLabel("水下无线光LED通信测试软件");
+        jlblTitle = new JLabel("水下无线光通信测试软件");
         jlblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         jlblTitle.setFont(ToptitleFont);
         jlblTitle.setForeground(new Color(77,108,191));
@@ -509,11 +509,11 @@ public class MainView {
         closeSerialPort.setBounds(9375/15, 6240/15, 1410/15, 495/15);
         container.add(closeSerialPort);
 
-        jlblVersionNumber = new JLabel("软件版本:V0.1");
-        jlblVersionNumber.setFont(titleFont);
-        jlblVersionNumber.setBackground(new Color(184, 184, 184));
-        jlblVersionNumber.setBounds(4792/15, 6960/15, 2520/15, 360/15);
-        container.add(jlblVersionNumber);
+//        jlblVersionNumber = new JLabel("软件版本:V0.1");
+//        jlblVersionNumber.setFont(titleFont);
+//        jlblVersionNumber.setBackground(new Color(184, 184, 184));
+//        jlblVersionNumber.setBounds(4792/15, 6960/15, 2520/15, 360/15);
+//        container.add(jlblVersionNumber);
 
         BtnAllClear = new JButton("全部清空");
         BtnAllClear.setFont(btnFont);
