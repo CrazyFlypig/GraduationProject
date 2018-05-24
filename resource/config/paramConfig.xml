@@ -8,9 +8,9 @@
 	</rates>
 	<encodings>
 		<encoding code="00">NRZ码</encoding>
-		<encoding code="01">PPM1</encoding>
-		<encoding code="10">PPM4</encoding>
-		<encoding code="11">4B5B+NRZI</encoding>
+		<encoding code="01">Manchester码</encoding>
+		<encoding code="10">PPM4码</encoding>
+		<encoding code="11">4B5B+NRZI码</encoding>
 	</encodings>
 	<errCorrectCodings>
 		<errCorrectCoding code="0">无</errCorrectCoding><!-- 有问题 -->
