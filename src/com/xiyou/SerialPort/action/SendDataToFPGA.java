@@ -10,6 +10,8 @@ import gnu.io.SerialPort;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author cc
@@ -24,25 +26,31 @@ public class SendDataToFPGA implements IElements {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 SerialPort serialPort = OpenSerialPortAction.getSerialPort();
-                if(serialPort == null) {
+                if (serialPort == null) {
                     ProjectTool.showErrorMsg(mainFrame, "串口尚未打开！");
                     return;
                 }
 
                 /************************获取到控制编码*********************************/
-                StringBuilder str = new StringBuilder();
-                String rateCode = ParamMap.getRateCode(jcmbTestRateBox.getSelectedItem().toString());
-                String lineEncodingCode = ParamMap.getEncodingCode(jcmbLineEncoding.getSelectedItem().toString());
-                String errorCorrectCode = ParamMap.getErrCorrectCodingCode(jcmbErrorCorrectingcodes.getSelectedItem().toString());
-                String testDataCode = ParamMap.getTestDataCode(jcmbTestData.getSelectedItem().toString());
-                str.append(rateCode).append(lineEncodingCode).append(errorCorrectCode).append(testDataCode);
-                int res = ProjectTool.stringToInt(str.toString());
+                List<String> strList = new ArrayList<>();
+                String rateCode = "0001" + ParamMap.getRateCode(jcmbTestRateBox.getSelectedItem().toString());
+                strList.add(rateCode);
+                String lineEncodingCode = "0010" + ParamMap.getEncodingCode(jcmbLineEncoding.getSelectedItem().toString());
+                strList.add(lineEncodingCode);
+                String errorCorrectCode = "0011" + ParamMap.getErrCorrectCodingCode(jcmbErrorCorrectingcodes.getSelectedItem().toString());
+                strList.add(errorCorrectCode);
+                String testDataCode = "0100" + ParamMap.getTestDataCode(jcmbTestData.getSelectedItem().toString());
+                strList.add(testDataCode);
                 /************************获取到控制编码*********************************/
 
                 try {
-                    SerialPortTool.sendToPort(serialPort, res);
-                    //记录发送的数据
-                    FileOperator.writeToTxFile(Integer.toHexString(res));
+                    for (String command : strList) {
+                        int res = ProjectTool.stringToInt(command);
+                        //发送数据
+                        SerialPortTool.sendToPort(serialPort, res);
+                        //记录发送数据
+                        FileOperator.writeToTxFile(Integer.toHexString(res));
+                    }
                 } catch (SendDataToSerialPortFailureException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -54,19 +62,21 @@ public class SendDataToFPGA implements IElements {
 
     /**
      * 指令测试（给开发板发送）
+     * 测试是否联通
      */
     private static int code = 0;//测试模块的编码
+
     public static void test() {
         BtnTestData.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 SerialPort serialPort = OpenSerialPortAction.getSerialPort();
-                if(serialPort == null) {
+                if (serialPort == null) {
                     ProjectTool.showErrorMsg(mainFrame, "串口尚未打开！");
                     return;
                 }
 
-                if(code > 255) {
+                if (code > 255) {
                     code = 0;
                 }
 

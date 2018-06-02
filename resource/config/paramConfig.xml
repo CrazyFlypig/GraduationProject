@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<rates>
-		<rate code="00">1Mbps</rate>
-		<rate code="01">2Mbps</rate>
-		<rate code="10">3Mbps</rate>
-		<rate code="11">4Mbps</rate>
+		<rate code="0000">1Mbps</rate>
+		<rate code="0001">2Mbps</rate>
+		<rate code="0010">3Mbps</rate>
+		<rate code="0011">4Mbps</rate>
 	</rates>
 	<encodings>
-		<encoding code="00">NRZ码</encoding>
-		<encoding code="01">Manchester码</encoding>
-		<encoding code="10">PPM4码</encoding>
-		<encoding code="11">4B5B+NRZI码</encoding>
+		<encoding code="0000">NRZ码</encoding>
+		<encoding code="0001">Manchester码</encoding>
+		<encoding code="0010">PPM4码</encoding>
+		<encoding code="0011">4B5B+NRZI码</encoding>
 	</encodings>
 	<errCorrectCodings>
-		<errCorrectCoding code="0">无</errCorrectCoding><!-- 有问题 -->
-		<errCorrectCoding code="1">LDPC</errCorrectCoding>
-		<errCorrectCoding code="1">RS</errCorrectCoding>
+		<errCorrectCoding code="0000">无</errCorrectCoding>
+		<errCorrectCoding code="0001">LDPC</errCorrectCoding>
+		<errCorrectCoding code="0010">RS</errCorrectCoding>
 	</errCorrectCodings>
 	<testDatas>
-		<testData code="000">01</testData>
-		<testData code="001">010011</testData>
-		<testData code="010">010011000111</testData>
-		<testData code="011">01001100011100001111</testData>
-		<testData code="100">PRBS 2^7-1</testData>
-		<testData code="101">PRBS 2^11-1</testData>
-		<testData code="110">PRBS 2^15-1</testData>
-		<testData code="111">PRBS 2^23-1</testData>
+		<testData code="0000">01</testData>
+		<testData code="0001">010011</testData>
+		<testData code="0010">010011000111</testData>
+		<testData code="0011">01001100011100001111</testData>
+		<testData code="0100">PRBS 2^7-1</testData>
+		<testData code="0101">PRBS 2^11-1</testData>
+		<testData code="0110">PRBS 2^15-1</testData>
+		<testData code="0111">PRBS 2^23-1</testData>
 	</testDatas>
 	<baudRates>
 		<baudRate>9600</baudRate>

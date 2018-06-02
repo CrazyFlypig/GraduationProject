@@ -21,6 +21,7 @@ public class CloseSerialPortAction implements IElements {
             public void actionPerformed(ActionEvent arg0) {
                 SerialPort serialPort = OpenSerialPortAction.getSerialPort();
                 SerialPortTool.closePort(serialPort);
+                OpenSerialPortAction.listener.stopListening();
                 OpenSerialPortAction.setSerialPort(null);
                 jbtnScan.setEnabled(true);
                 openSerialPort.setEnabled(true);

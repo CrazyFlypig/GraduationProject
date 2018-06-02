@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 
 /**
  * 开启串口类
+ *
  * @author cc
  */
 
@@ -22,9 +23,9 @@ public class OpenSerialPortAction implements IElements {
     private static int checkBit = SerialPort.PARITY_NONE;//默认检测位
     private static int stopBit = SerialPort.STOPBITS_1;//默认停止位
 
-    private	static SerialPort serialPort = null;//打开的串口
+    private static SerialPort serialPort = null;//打开的串口
 
-    private static PollingListener listener = null;//轮训监听器
+    public static PollingListener listener = null;//轮训监听器
 
     public static void setSerialPort(SerialPort serialPort) {
         OpenSerialPortAction.serialPort = serialPort;
@@ -42,14 +43,14 @@ public class OpenSerialPortAction implements IElements {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 String com = (String) jcmbSerialPort.getSelectedItem();
-                if(com == null) {
+                if (com == null) {
                     ProjectTool.showErrorMsg(mainFrame, "未找到可用的串口！");
                     return;
                 }
 
                 baudRate = Integer.valueOf(jcmbBaudRate.getSelectedItem().toString());
                 checkBit = ProjectTool.getSerialPortParameteByName(jcmbChekBit.getSelectedItem().toString());
-                stopBit =  ProjectTool.getSerialPortParameteByName(jcmbStopBit.getSelectedItem().toString());
+                stopBit = ProjectTool.getSerialPortParameteByName(jcmbStopBit.getSelectedItem().toString());
 
                 try {
                     serialPort = SerialPortTool.openPort(com, baudRate, stopBit, checkBit);
